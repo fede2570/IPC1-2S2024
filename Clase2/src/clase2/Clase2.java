@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author PcNitro
+ * @author federico
  */
 public class Clase2 {
     

@@ -2,7 +2,7 @@ package clase2_parte2;
 
 /**
  *
- * @author PcNitro
+ * @author federico
  */
 public class Clase2_Parte2 {
     
