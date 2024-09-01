@@ -370,23 +370,9 @@ public class VentanaInvestigador extends javax.swing.JFrame {
             
         } 
     }//GEN-LAST:event_jButton5ActionPerformed
-    String borrar = "I2";
+ 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        
-        for (Investigador inv: Ejemplo_Proyecto.lista_investigador) {
-            if (inv.codigo.equals(borrar)) {
-                //int experimentos = Ejemplo_Proyecto.lista_investigador.indexOf(cod+2);
-                //Investigador DI=new Investigador(cod, cod+1, experimentos, cod+3);
-                //Ejemplo_Proyecto.lista_investigador.remove(DI);
-
-                Ejemplo_Proyecto.lista_investigador.remove(inv);
-                Ejemplo_Proyecto.lista_investigador.set(0, inv);
-                JOptionPane.showMessageDialog(null, "Usuario eliminado");
-                return;
-            }
-        }
-        JOptionPane.showMessageDialog(null, "Usuario no encontrado");
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
