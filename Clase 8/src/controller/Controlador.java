@@ -60,9 +60,13 @@ public class Controlador implements ActionListener {
                 int tiempoMaterial = tiempoMaterial(material);
                 
                 this.ventanahilo.barraMaterial.setValue(0);
-                this.ventanahilo.barraMaterial.setMaximum(cantidad);
+                System.out.println(tiempoMaterial*100);
+                this.ventanahilo.barraMaterial.setMaximum(100);
+                
                 for (int j = 0; j < tiempoMaterial; j++) {
-                    this.ventanahilo.barraMaterial.setValue(j);
+                    double porcentaje = (double) j/tiempoMaterial*100;
+                    this.ventanahilo.barraMaterial.setValue((int) porcentaje);
+                    this.ventanahilo.lbporcentajeMaterial.setText(porcentaje + "%");
                     
                     try {
                         Thread.sleep(1000);
