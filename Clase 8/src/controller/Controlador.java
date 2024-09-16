@@ -60,7 +60,6 @@ public class Controlador implements ActionListener {
                 int tiempoMaterial = tiempoMaterial(material);
                 
                 this.ventanahilo.barraMaterial.setValue(0);
-                System.out.println(tiempoMaterial*100);
                 this.ventanahilo.barraMaterial.setMaximum(100);
                 
                 for (int j = 0; j < tiempoMaterial; j++) {
