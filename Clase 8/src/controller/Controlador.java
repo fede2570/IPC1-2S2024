@@ -73,10 +73,9 @@ public class Controlador implements ActionListener {
                         
                     }
                 }
-                
+                this.ventanahilo.barraMaterial.setValue(0);
                 cantidadProductos++;
             }
-            this.ventanahilo.barraMaterial.setValue(0);
             
         });
         hilo.start();
