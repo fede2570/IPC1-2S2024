@@ -37,11 +37,12 @@ public class Controlador implements ActionListener {
     }
     
     public int tiempoMaterial(String material) {
-        int tiempo = 0;
+        int tiempo = -1;
         
         switch (material) {
             case "metal": {
                 tiempo = 5;
+                break;
             }
         }
         return tiempo;
