@@ -37,11 +37,12 @@ public class Controlador implements ActionListener {
     }
     
     public int tiempoMaterial(String material) {
-        int tiempo = 0;
+        int tiempo = -1;
         
         switch (material) {
             case "metal": {
                 tiempo = 5;
+                break;
             }
         }
         return tiempo;
@@ -60,7 +61,6 @@ public class Controlador implements ActionListener {
                 int tiempoMaterial = tiempoMaterial(material);
                 
                 this.ventanahilo.barraMaterial.setValue(0);
-                System.out.println(tiempoMaterial*100);
                 this.ventanahilo.barraMaterial.setMaximum(100);
                 
                 for (int j = 0; j < tiempoMaterial; j++) {
@@ -74,10 +74,9 @@ public class Controlador implements ActionListener {
                         
                     }
                 }
-                
+                this.ventanahilo.barraMaterial.setValue(0);
                 cantidadProductos++;
             }
-            this.ventanahilo.barraMaterial.setValue(0);
             
         });
         hilo.start();
