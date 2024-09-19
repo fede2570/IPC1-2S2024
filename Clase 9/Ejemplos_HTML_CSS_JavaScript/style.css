@@ -1,0 +1,13 @@
+/*Centrar imagen dentro de contenedor div*/
+.contenedor {
+    text-align: center;
+}
+
+/*Cambiar color a parrafo*/
+p {
+    color: blue;
+}
+
+.parrafo1 {
+    color: red;
+}
