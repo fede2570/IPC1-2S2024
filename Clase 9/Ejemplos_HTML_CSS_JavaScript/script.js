@@ -3,7 +3,8 @@
 function sumar() {
 
     /*
-    const se usa para palabras estaticas, 
+    const es una constante
+    const se usa para variables constantes, 
     no se le puede cambiar el valor
     let
     var se usa para variables globales, no es recomendable usarlo
