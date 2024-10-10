@@ -1,0 +1,12 @@
+[
+    {
+        "codigo": "ECYS1",
+        "nombre": "Profesor 1",
+        "password": "123"
+    },
+    {
+        "codigo": "ECYS2",
+        "nombre": "Profesor 2",
+        "password": "123"
+    }
+]
