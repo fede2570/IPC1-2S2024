@@ -103,7 +103,7 @@ const asignarEstudianteCurso = (req, res) => {
     //Buscar objeto de curso
     const objetoCurso = listaCursos.find(curso => curso.codigo == codigo_curso)
 
-    if (!objetoCurso) {
+    if (objetoCurso) {
         for (const data of jsonData) {
             //Guardar json de carnets en lista de estudiantes
             objetoCurso.listaEstudiantes.push(data)
