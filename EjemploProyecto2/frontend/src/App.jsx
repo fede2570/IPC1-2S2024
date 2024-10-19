@@ -8,6 +8,9 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
 import Profesor from './pages/Profesor';
+import CargarCursos from './pages/CargarCursos';
+import CargarStudent from './pages/CargarStudent';
+import PaginaCurso from './pages/PaginaCurso';
 
 function App() {
 
@@ -18,6 +21,9 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/admin' element={<Admin/>}/>
           <Route path='/profesor' element={<Profesor/>}/>
+          <Route path='/cargar-cursos' element={<CargarCursos/>}/>
+          <Route path='/cargar-student' element={<CargarStudent/>}/>
+          <Route path='/detalle-curso/:idcurso' element={<PaginaCurso/>}/>
         </Routes>
       </BrowserRouter>
     </>

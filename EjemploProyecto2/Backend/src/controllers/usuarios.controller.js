@@ -1,6 +1,6 @@
 const Estudiante = require('../models/Estudiante')
 const Profesor = require('../models/Profesor')
-const {listaEstudiantes, listaProfesores} = require('../database/database')
+const {listaEstudiantes, listaProfesores, listaCursos} = require('../database/database')
 
 const registroEstudiante = (req, res) => {
     const {carnet, nombre, correo, password} = req.body;
@@ -63,6 +63,7 @@ const cargarProfesores = (req, res) => {
     res.json({msg: "Se registraron los profesores"})
 }
 
+
 const verProfesores = (req, res) => {
     res.json(listaProfesores)
 }
@@ -81,16 +82,56 @@ const eliminarProfesor = (req, res) => {
     }
 }
 
-const registroProfesores = (req, res) => {
+const cargarEstudiantes = (req, res) => {
+
+    const jsonData = req.body;
+
+    for (const data of jsonData) {
+        const estudiante = new Estudiante(data.carnet, data.nombre, data.correo, data.password)
+        listaEstudiantes.push(estudiante)
+    }
+    res.json({msg: "Se cargaron los estudiantes"})
+}
+
+//Colocar endpoint para ver estudiantes y agregar ruta en routes.js
+
+const asignarEstudianteCurso = (req, res) => {
     
+    const jsonData = req.body;  //Lista de carnets
+    const codigo_curso = req.params.codigo_curso;
+
+    //Buscar objeto de curso
+    const objetoCurso = listaCursos.find(curso => curso.codigo == codigo_curso)
+
+    if (!objetoCurso) {
+        for (const data of jsonData) {
+            //Guardar json de carnets en lista de estudiantes
+            objetoCurso.listaEstudiantes.push(data)
+        }
+        return res.json({msg: "Se registraron estudiantes en el curso"})
+    } else {
+        return res.json({msg: "Error al cargar cursos"})
+    }
+
+}
+
+const verCursosProfesor = (req, res) => {
+
+    const codigo_profesor = req.params.codigo_profesor;
+
+    //Obtener lista de cursos de profesor especifico
+    const listaCursoProfesor = listaCursos.filter(curso => curso.codigo_profesor == codigo_profesor)
+    res.json(listaCursoProfesor)
 }
 
 module.exports = {
     registroEstudiante,
-    registroProfesores,
     verEstudiantes,
     login,
     cargarProfesores,
     verProfesores,
-    eliminarProfesor
+    eliminarProfesor,
+    cargarEstudiantes,
+    asignarEstudianteCurso,
+    verCursosProfesor
 }

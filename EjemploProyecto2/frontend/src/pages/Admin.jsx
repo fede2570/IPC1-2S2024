@@ -44,7 +44,7 @@ const Admin = () => {
         <>
             <NavBar/>
             <div>
-                <h1>Administrador</h1>
+                <h1>Administrador Cargar Profesores</h1>
                 <input type="file" onChange={handleFileJSON}/>
 
                 <div>
