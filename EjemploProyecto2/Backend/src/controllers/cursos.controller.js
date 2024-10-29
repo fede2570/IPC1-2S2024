@@ -32,7 +32,18 @@ const verCursos = (req, res) => {
     res.json(listaCursos)
 }
 
+const verCursosEstudiantes = (req, res) => {
+    const carnet = req.params.carnet;
+    console.log("Llego a cursos estudiantes")
+    const listaCursosEstudiante = listaCursos.filter(curso => 
+        curso.listaEstudiantes.some(estudiante => estudiante.carnet == carnet)
+    )
+    console.log(listaCursosEstudiante)
+    return res.json(listaCursosEstudiante)
+}
+
 module.exports = {
     cargarCursos,
-    verCursos
+    verCursos,
+    verCursosEstudiantes
 }

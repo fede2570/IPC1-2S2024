@@ -5,7 +5,7 @@ const Profesor = () => {
 
     const [cursos, setCursos] = useState([])
 
-    const {codigo, nombre, password} = JSON.parse(localStorage.getItem("usuario"))
+    const {codigo, nombre, password} = JSON.parse(localStorage.getItem("profesor"))
 
     const handleViewCursos = () => {
         axios.get('http://localhost:4000/verCursosProf/' + codigo)

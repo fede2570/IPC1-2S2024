@@ -30,14 +30,19 @@ const Login = () => {
         }).then(response => {
             if (response.data.ok) {
 
-                localStorage.setItem("usuario", JSON.stringify(response.data.usuario))
+                //localStorage.setItem("usuario", JSON.stringify(response.data.usuario))
 
                 if (response.data.rol == "admin") {
+                    localStorage.setItem("admin", JSON.stringify(response.data.usuario))
                     alert('Bienvenido administrador')
                     return window.location.href = "/admin"
                 } else if (response.data.rol == "profesor") {
+                    localStorage.setItem("profesor", JSON.stringify(response.data.usuario))
                     alert('Bienvenido profesor')
                     return window.location.href = "/profesor"
+                } else if (response.data.rol == "estudiante") {
+                    localStorage.setItem("estudiante", JSON.stringify(response.data.usuario))
+                    return window.location.href = "/estudiante"
                 }
             } else {
                 alert("Eror de usuario o contraseña")
@@ -69,6 +74,7 @@ const Login = () => {
                                         <span>Administrador</span>
                                         </label>
                                     </p>
+                                    
                                     <p>
                                         <label>
                                         <input class="with-gap" name="group3" 
@@ -78,6 +84,18 @@ const Login = () => {
                                         <span>Profesor</span>
                                         </label>
                                     </p>
+
+                                    <p>
+                                        <label>
+                                        <input class="with-gap" name="group3" 
+                                        type="radio" value={"estudiante"}
+                                        onChange={handleChangeRol}
+                                        />
+                                        <span>Estudiante</span>
+                                        </label>
+                                    </p>
+
+
                                 </div>
 
                                 <div className="card-action">

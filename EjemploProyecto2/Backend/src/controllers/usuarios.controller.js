@@ -27,7 +27,7 @@ const login = (req, res) => {
     let usuario;
 
     if (rol == "estudiante") {
-        usuario = listaEstudiantes.find(user => user.carnet === codigo && user.password == password)
+        usuario = listaEstudiantes.find(user => user.carnet == codigo && user.password == password)
     } else if (rol == "profesor") {
         usuario = listaProfesores.find(user => user.codigo == codigo && user.password == password)
     } else {
@@ -112,6 +112,20 @@ const asignarEstudianteCurso = (req, res) => {
     } else {
         return res.json({msg: "Error al cargar cursos"})
     }
+}
+
+const verEstudiantesCurso = (req, res) => {
+
+    const codigo_curso = req.params.codigo_curso;
+    console.log(codigo_curso)
+
+    const objetoCurso = listaCursos.find(curso => curso.codigo == codigo_curso)
+
+    if (objetoCurso) {
+        return res.json(objetoCurso.listaEstudiantes)
+    } else {
+        return res.json({msg: "No existe el curso"})
+    }
 
 }
 
@@ -133,5 +147,6 @@ module.exports = {
     eliminarProfesor,
     cargarEstudiantes,
     asignarEstudianteCurso,
-    verCursosProfesor
+    verCursosProfesor,
+    verEstudiantesCurso
 }

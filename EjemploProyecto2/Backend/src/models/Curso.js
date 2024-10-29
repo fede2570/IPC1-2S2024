@@ -5,6 +5,7 @@ class Curso {
         this.nombre = nombre;
         this.codigo_profesor = codigo_profesor;
         this.listaEstudiantes = []
+        this.listaActividades = []
     }
 }
 
